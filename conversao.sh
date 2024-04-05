@@ -2,7 +2,7 @@
 
 converte_imagem(){
 
-cd ~/curso-shell-script/imagens-livros
+cd ~/curso-shell-script/imagens-liv
 
 if [ $? -eq 1 ]; then
 	echo "diretório nao existe" 
@@ -19,7 +19,11 @@ else
 fi
 }
 
-converte_imagem
+
+
+converte_imagem 2>erros_conversao.txt
+date >data.txt
+paste data.txt erros_conversao.txt >> logs.txt
 
 if [ $? -eq 0 ]; then
 	echo "Conversão realizada com sucesso"
