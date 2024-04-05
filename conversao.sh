@@ -2,7 +2,7 @@
 
 converte_imagem(){
 
-cd ~/curso-shell-script/imagens-liv
+cd ~/curso-shell-script/imagens-livro
 
 if [ $? -eq 1 ]; then
 	echo "diretório nao existe" 
@@ -18,15 +18,15 @@ else
 	done
 fi
 }
-
-
-
+#converte_imagem
 converte_imagem 2>erros_conversao.txt
-date >data.txt
-paste data.txt erros_conversao.txt >> logs.txt
+
+
 
 if [ $? -eq 0 ]; then
 	echo "Conversão realizada com sucesso"
 elif [ $? -eq 1 ]; then
+	date >data.txt
+	paste data.txt erros_conversao.txt >>logs.txt
 	echo "Houve uma falha no processo"
 fi
